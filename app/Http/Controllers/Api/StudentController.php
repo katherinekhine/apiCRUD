@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Validator;
 
 class StudentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:sanctum')->except('index');
+        // or
+        // $this->middleware('auth:sanctum')->only('create', 'delete);
+    }
     /**
      * Display a listing of the resource.
      */
